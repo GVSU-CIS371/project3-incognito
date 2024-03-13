@@ -3,11 +3,13 @@
     <Beverage :isIced="currentTemp === 'Cold'" />
     <ul>
       <li>
+      <p>
+        <label> Temperature: </label>
         <template v-for="temp in temps" :key="temp">
           <label>
             <input
               type="radio"
-              name="temperature"
+              name="Temperature"
               :id="`r${temp}`"
               :value="temp"
               v-model="currentTemp"
@@ -15,6 +17,52 @@
             {{ temp }}
           </label>
         </template>
+      </p>
+      <p>
+      <label> Creamer: </label>
+        <template v-for="creamer in creamers" :key="creamer">
+          <label>
+            <input
+              type="radio"
+              name="Creamer"
+              :id="`r${creamer}`"
+              :value="creamer"
+              v-model="currentCreamer"
+            />
+            {{ creamer }}
+          </label>
+        </template>
+      </p>
+      <p>
+      <label> Syrup: </label>
+        <template v-for="syrup in syrups" :key="syrup">
+          <label>
+            <input
+              type="radio"
+              name="Syrup"
+              :id="`r${syrup}`"
+              :value="syrup"
+              v-model="currentSyrup"
+            />
+            {{ syrup }}
+          </label>
+        </template>
+      </p>
+      <p>
+      <label> Base Beverage: </label>
+        <template v-for="base in baseBeverages" :key="base">
+          <label>
+            <input
+              type="radio"
+              name="Base Beverage"
+              :id="`r${base}`"
+              :value="base"
+              v-model="currentBase"
+            />
+            {{ base }}
+          </label>
+        </template>
+      </p>
       </li>
     </ul>
   </div>
@@ -26,6 +74,12 @@ import Beverage from "./components/Beverage.vue";
 // Define reactive data
 const temps = ref(["Hot", "Cold"]);
 const currentTemp = ref("Hot");
+const creamers = ref(["None", "Milk", "Cream", "Half & Half"]);
+const currentCreamer = ref(["None"]);
+const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
+const currentSyrup = ref(["None"]);
+const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
+const currentBase = ref(["Coffee"]);
 </script>
 
 <style lang="scss">
