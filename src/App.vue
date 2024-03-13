@@ -71,15 +71,18 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Beverage from "./components/Beverage.vue";
+import Creamer from "./components/Creamer.vue";
+import Syrup from "./components/Syrup.vue";
+import Base from "./components/Base.vue";
 // Define reactive data
 const temps = ref(["Hot", "Cold"]);
 const currentTemp = ref("Hot");
 const creamers = ref(["None", "Milk", "Cream", "Half & Half"]);
-const currentCreamer = ref(["None"]);
+const currentCreamer = ref("None");
 const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
-const currentSyrup = ref(["None"]);
+const currentSyrup = ref("None");
 const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
-const currentBase = ref(["Coffee"]);
+const currentBase = ref("Coffee");
 </script>
 
 <style lang="scss">
