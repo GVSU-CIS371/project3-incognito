@@ -27,9 +27,16 @@ const Syrups: Syrup[] = [
 ];
 
 const props = withDefaults(defineProps<Prop>(), {
-  name: "Vanilla",
+  currentSyrup: string,
 });
+
+const showSyrupChoice = computed(()=>{ 
+  return Syrups.find(syrup => syrup.name === props.currentSyrup);
+});
+
+const changeStyle = computed(() => { syrup: props.color});
 </script>
+
 <style lang="scss" scoped>
 .syrup {
   transform: translateY(400%);

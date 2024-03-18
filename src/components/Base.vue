@@ -27,8 +27,14 @@ const Bases: BaseBeverage[] = [
 ];
 
 const props = withDefaults(defineProps<Prop>(), {
-  name: "Black Tea",
+  currentBase: string,
 });
+
+const showBaseChoice = computed(()=>{ 
+  return Bases.find(base => base.name === props.currentBase);
+});
+
+const changeStyle = computed(() => { base: props.color});
 </script>
 
 <style scoped>

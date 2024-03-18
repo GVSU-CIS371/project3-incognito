@@ -1,6 +1,6 @@
 <template>
   <div class="froth">
-    <div v-for=" in 5" class="foam"></div>
+    <div v-for=" in 5" class="foam" ></div>
   </div>
 </template>
 
@@ -29,9 +29,16 @@ const Creamers: Creamer[] = [
 ];
 
 const props = withDefaults(defineProps<Prop>(), {
-  name: "Milk",
+  currentCreamer: string,
 });
+
+const showCreamerChoice = computed(()=>{ 
+  return Creamers.find(creamer => creamer.name === props.currentCreamer);
+});
+
+const changeStyle = computed(() => { creamer: props.color});
 </script>
+
 <style lang="scss" scoped>
 .froth {
   overflow: visible;
