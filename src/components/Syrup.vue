@@ -1,5 +1,5 @@
 <template>
-  <div class="syrup"></div>
+  <div class="syrup" :style="{ backgroundColor: showSyrupChoice }"></div>
 </template>
 
 <script setup lang="ts">
@@ -27,14 +27,14 @@ const Syrups: Syrup[] = [
 ];
 
 const props = withDefaults(defineProps<Prop>(), {
-  currentSyrup: string,
+  name: "None",
 });
 
 const showSyrupChoice = computed(()=>{ 
-  return Syrups.find(syrup => syrup.name === props.currentSyrup);
+  const syrup = Syrups.find((syrup) => syrup.name === props.name);
+  return syrup ? syrup.color : "None";
 });
 
-const changeStyle = computed(() => { syrup: props.color});
 </script>
 
 <style lang="scss" scoped>

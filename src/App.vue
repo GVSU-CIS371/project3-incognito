@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Beverage :isIced="currentTemp === 'Cold'" />
+    <Beverage :isIced="currentTemp === 'Cold'" :beverage="currentBase" :creamer="currentCreamer" :syrup="currentSyrup"/>
     <ul>
       <li>
       <p>
@@ -50,16 +50,16 @@
       </p>
       <p>
       <label> Base Beverage: </label>
-        <template v-for="base in baseBeverages" :key="base">
+        <template v-for="beverage in baseBeverage" :key="beverage">
           <label>
             <input
               type="radio"
               name="Base Beverage"
-              :id="`r${base}`"
-              :value="base"
+              :id="`r${beverage}`"
+              :value="beverage"
               v-model="currentBase"
             />
-            {{ base }}
+            {{ beverage }}
           </label>
         </template>
       </p>
@@ -81,7 +81,7 @@ const creamers = ref(["None", "Milk", "Cream", "Half & Half"]);
 const currentCreamer = ref("None");
 const syrups = ref(["None", "Vanilla", "Caramel", "Hazelnut"]);
 const currentSyrup = ref("None");
-const baseBeverages = ref(["Coffee", "Green Tea", "Black Tea"]);
+const baseBeverage = ref(["Coffee", "Green Tea", "Black Tea"]);
 const currentBase = ref("Coffee");
 </script>
 

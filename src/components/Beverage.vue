@@ -4,13 +4,15 @@
     <Hot v-else />
     <Contents>
       <template v-slot:top>
-        <Creamer v-on:click="showCreamerChoice"/>
+        <Creamer v-if="creamer != 'None'" :name="creamer"/>
+        <Syrup v-if="syrup != 'None'" :name="syrup"/>
+        <Base v-else/>
       </template>
       <template v-slot:mid>
-        <Syrup v-on:click="showSyrupChoice"/>
+        <Syrup v-if="syrup != 'None'" :name="syrup"/>
       </template>
       <template v-slot:bottom>
-        <Base v-on:click="showBaseChoice"/>
+        <Base :name="beverage"/>
       </template>
     </Contents>
   </Mug>

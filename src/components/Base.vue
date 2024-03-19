@@ -1,5 +1,5 @@
 <template>
-  <div class="baseBeverage"></div>
+  <div class="baseBeverage" :style="{ backgroundColor: showBaseChoice }"></div>
 </template>
 
 <script setup lang="ts">
@@ -22,19 +22,19 @@ const Bases: BaseBeverage[] = [
   },
   {
     name: "Coffee",
-    color: "#6F4E37",
+    color: "#6F4E38",
   },
 ];
 
 const props = withDefaults(defineProps<Prop>(), {
-  currentBase: string,
+  name: "Coffee",
 });
 
 const showBaseChoice = computed(()=>{ 
-  return Bases.find(base => base.name === props.currentBase);
+  const beverage = Bases.find((beverage) => beverage.name === props.name);
+  return beverage ? beverage.color : "Coffee";
 });
 
-const changeStyle = computed(() => { base: props.color});
 </script>
 
 <style scoped>
@@ -45,6 +45,6 @@ const changeStyle = computed(() => { base: props.color});
   bottom: 0;
   animation: pour-tea 2s;
   z-index: 300;
-  /* // border-radius: 0.05em 0.05em 2.2em 2.2em; */
+  border-radius: 0.05em 0.05em 2.2em 2.2em;
 }
 </style>
