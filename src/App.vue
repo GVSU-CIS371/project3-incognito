@@ -71,9 +71,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Beverage from "./components/Beverage.vue";
-import Creamer from "./components/Creamer.vue";
-import Syrup from "./components/Syrup.vue";
-import Base from "./components/Base.vue";
+//import Creamer from "./components/Creamer.vue";
+//import Syrup from "./components/Syrup.vue";
+//import Base from "./components/Base.vue";
 // Define reactive data
 const temps = ref(["Hot", "Cold"]);
 const currentTemp = ref("Hot");
